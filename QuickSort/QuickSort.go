@@ -1,6 +1,8 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 func doQuickSort(array []int, left int, right int) {
 	if left > right {
