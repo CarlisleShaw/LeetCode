@@ -5,11 +5,11 @@ import (
 	"sort"
 )
 
-type str []string
+type strArray []string
 
-func (a str) Len() int      { return len(a) }
-func (a str) Swap(i, j int) { a[i], a[j] = a[j], a[i] }
-func (a str) Less(i, j int) bool {
+func (a strArray) Len() int      { return len(a) }
+func (a strArray) Swap(i, j int) { a[i], a[j] = a[j], a[i] }
+func (a strArray) Less(i, j int) bool {
 	if len(a[i]) == len(a[j]) {
 		for x := 0; x < len(a[i]); x++ {
 			if a[i][x] == a[j][x] {
@@ -36,7 +36,7 @@ func isVaild(s, str string) bool {
 
 func findLongestWord(s string, d []string) string {
 	// 按长度和字母ASCII排序
-	sort.Sort(str(d))
+	sort.Sort(strArray(d))
 	for _, str := range d {
 		if isVaild(s, str) {
 			return str
