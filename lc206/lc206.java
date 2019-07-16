@@ -11,9 +11,8 @@ processing: NULL<-1<-2  3->4->5->NULL
                 prev   cur   next
 Operations：
 1.cur.next->next
-2.connect prev & cur
-3.disconnect cur & next
-4.move prev & cur 1 position to the right 
+2.connect prev & cur (disconnect cur & next)
+3.move prev & cur 1 position to the right 
 ****************************************/
 class Solution {
     public ListNode reverseList(ListNode head) {
