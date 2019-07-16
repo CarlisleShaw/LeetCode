@@ -14,7 +14,7 @@ Operations：
 2.connect prev & cur (disconnect cur & next)
 3.move prev & cur 1 position to the right 
 ****************************************/
-class Solution {
+public class Solution {
     public ListNode reverseList(ListNode head) {
         ListNode cur = head;
         ListNode prev = null;
@@ -28,7 +28,7 @@ class Solution {
     }
 }
 
-private class ListNode {
+class ListNode {
     int val;
     ListNode next;
 
