@@ -4,6 +4,12 @@
             "type": "java",
             "name": "CodeLens (Launch) - Solution",
             "request": "launch",
+            "mainClass": "LeetCode.lc22.Solution"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Solution",
+            "request": "launch",
             "mainClass": "LeetCode.lc20.Solution"
         }
     ]
