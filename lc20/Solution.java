@@ -9,19 +9,19 @@ public class Solution {
     }
     public boolean isValid(String s) {
         char[] charArray = s.toCharArray();
-        Stack<Character> stack = new Stack<>();
+        ArrayDeque<Character> stack = new ArrayDeque<>();
         for (Character c : charArray) {
             if (map.containsKey(c)) {
-                stack.add(c);
+                stack.push(c);
             } else {
                 // CAUTION: If stack is empty, peek() will throw EmptyStackException.
-                if (stack.empty()) return false; 
-                else if (map.get(stack.peek()).equals(c)) stack.pop();
+                if (stack.isEmpty()) return false; 
+                else if (map.get(stack.peekFirst()).equals(c)) stack.pop();
                 else return false;
             }
         }
         // CAUTION: For example, "({[]" will come here and need to be handled.
-        if (!stack.empty()) return false;
+        if (!stack.isEmpty()) return false;
         return true;
     }
 }
