@@ -1,40 +1,27 @@
-package LeetCode.lc20;
-
 import java.util.*;
 import java.lang.*;
 public class Solution {
-    Map<Character,Character> m;
+    Map<Character,Character> map = new HashMap<>();
     Solution() {
-        m = new HashMap<Character,Character>();
-        m.put('(', ')');
-        m.put('{', '}');
-        m.put('[', ']');
+        map.put('(', ')');
+        map.put('[', ']');
+        map.put('{', '}');
     }
     public boolean isValid(String s) {
-        Stack<Character> stack = new Stack<Character>();
-        for(int i = 0; i < s.length(); i++) {
-            if(m.get(s.charAt(i)) == null) {
-                if(stack.empty()) {
-                    return false;
-                } else {
-                    if(m.get(stack.peek()) == s.charAt(i)) {
-                        stack.pop();
-                    } else {
-                        return false;
-                    }
-                }
+        Character[] charArray = s.toCharArray();
+        Stack<Character> stack = new Stack<>();
+        for (Character c : charArray) {
+            if (map.containsKey(c)) {
+                stack.add(c);
             } else {
-                stack.push(s.charAt(i));
+                // CAUTION: If stack is empty, peek() will throw EmptyStackException.
+                if (stack.empty()) return false; 
+                else if (map.get(stack.peek()).equals(c)) stack.pop();
+                else return false;
             }
         }
-        if(!stack.empty()) {
-            return false;
-        }
+        // CAUTION: for example, "({[]" will come here and need to be handled.
+        if (!stack.empty()) return false;
         return true;
-    }
-
-    public static void main(String[] args) {
-        Solution s = new Solution();
-        System.out.println(s.isValid("{()}"));
     }
 }
