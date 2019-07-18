@@ -8,7 +8,7 @@ public class Solution {
         map.put('{', '}');
     }
     public boolean isValid(String s) {
-        Character[] charArray = s.toCharArray();
+        char[] charArray = s.toCharArray();
         Stack<Character> stack = new Stack<>();
         for (Character c : charArray) {
             if (map.containsKey(c)) {
@@ -20,7 +20,7 @@ public class Solution {
                 else return false;
             }
         }
-        // CAUTION: for example, "({[]" will come here and need to be handled.
+        // CAUTION: For example, "({[]" will come here and need to be handled.
         if (!stack.empty()) return false;
         return true;
     }
